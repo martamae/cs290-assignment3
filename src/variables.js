@@ -34,7 +34,12 @@ false otherwise
 */
 function isString(b) {
   //your code here
-  return undefined;
+  if (typeof b == 'string') {
+    return true;
+  }
+  else {
+    return false;
+  }
   //end your code
 }
 
