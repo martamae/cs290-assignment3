@@ -14,7 +14,9 @@
 
 //your code here
 function uselessFunction() {
-    return null;
+    var useless = null;
+
+    return useless;
 }
 
 //end your code
@@ -33,7 +35,19 @@ var barType = typeof bar;
 */
 
 //your code here
+bar = function (arr) {
 
+    for (var i = 0; i < arr.length; i++) {
+        if (isNaN(arr[i])) {
+           return false;
+        }
+        else {
+           arr[i] = arr[i] * 2;
+        }
+    }
+
+    return true;
+}
 //end your code
 
 /**

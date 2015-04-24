@@ -51,10 +51,12 @@ Output:
 return true if c is null, false otherwise
 */
 function isNull(c) {
+    //your code here
   if (c == null && typeof c != 'undefined') {
     return true;
   }
    else {
     return false;
    }
+  //end your code
 }
