@@ -89,8 +89,8 @@ function parseGit(logArray) {
 
    for (var j = 0; j < logArray.length; j++) {
        var hash = logArray[j].slice(0, logArray[j].indexOf(" "));
-       var date = logArray[j].slice(logArray[j].indexOf(" "), logArray[j].lastIndexOf(" "));
-       var message = logArray[j].slice(logArray[j].lastIndexOf(' '));
+       var date = logArray[j].slice(logArray[j].indexOf(" "), logArray[j].indexOf('"'));
+       var message = logArray[j].slice(logArray[j].indexOf('"') + 1, logArray[j].lastIndexOf('"'));
 
       GitLogArray.length++;
       GitLogArray[j] = new GitLog(hash, new Date(date), message);
