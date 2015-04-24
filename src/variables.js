@@ -16,11 +16,9 @@ function variableModification(a) {
   //your code here
   plus5 = 5 + a;
 
-  asString = 'a';
+  asString = `${a}`;
 
   yourNumberIs = "Your Number is " + a;
-
-  a = a;
 
   //end your code
   return [plus5, asString, yourNumberIs, a];
