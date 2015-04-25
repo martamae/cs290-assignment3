@@ -47,8 +47,8 @@ function returnObjectLiteral() {
 //your code here
 function MessageLog (user) {
     this.user = user;
-    this.totalSent = 0;
-    this.totalReceived = 0;
+    this.totalSentMessages = 0;
+    this.totalReceivedMessages = 0;
     this.sentMessages = Array(5);
     this.receivedMessages = Array(5);
 
@@ -68,18 +68,18 @@ function MessageLog (user) {
             totalReceived++;
         }
     }
-   // this.getSentMessage = function (n) {
-     //   mostRecent = (totalSent - 1) % 5;
+    this.getSentMessage = function (n) {
+        mostRecent = (totalSent - 1) % 5;
 
-       // if (mostRecent + n < 5) {
-         //   return sentMessages[mostRecent + n];
-       // }
-       // else {
-         //   return sentMessage[mostRecent + n - 5];
-       // }
-    //}
-    //this.totalSentMessage = function () { return totalSent; }
-   // this.totalReceived() = function () { return totalReceived; }
+        if (mostRecent + n < 5) {
+            return sentMessages[mostRecent + n];
+        }
+        else {
+            return sentMessage[mostRecent + n - 5];
+        }
+    }
+    this.totalSent = function () { return totalSentMessages; }
+    this.totalReceived = function () { return totalReceivedMessages; }
 }
 //end your code
 
