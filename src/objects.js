@@ -55,7 +55,7 @@ function MessageLog (user) {
     this.logMessage = function (messageText, direction) {
         if (direction == 0) {
             var index = this.totalSentMessages % 5;
-        
+
             this.sentMessages[index] = messageText;
 
             this.totalSentMessages++;
@@ -67,7 +67,7 @@ function MessageLog (user) {
 
             this.totalReceivedMessages++;
         }
-    }
+    };
     this.getSentMessage = function (n) {
         var mostRecent = (this.totalSentMessages - 1) % 5;
 
@@ -77,8 +77,8 @@ function MessageLog (user) {
         else {
             return this.sentMessages[mostRecent - n + 5];
         }
-    }
-    this.totalSent = function () { return this.totalSentMessages; };
+    };
+    this.totalSent = function () { return this.totalSentMessages };
     this.totalReceived = function () { return this.totalReceivedMessages };
 }
 //end your code
@@ -101,5 +101,11 @@ MessageLog.prototype.lastReceivedMessage = function () {
 */
 
 //your code here
+var BlackHatGuy = new MessageLog("BlackHatGuy");
+BlackHatGuy.logMessage("foo", 1);
+BlackHatGuy.logMessage("bar", 1);
+BlackHatGuy.logMessage("baz", 1);
+
+var myLog = BlackHatGuy;
 
 //end your code
