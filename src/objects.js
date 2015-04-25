@@ -54,7 +54,7 @@ function MessageLog (user) {
 
     this.logMessage = function (messageText, direction) {
         if (direction == 0) {
-            var index = this.totalSent % 5;
+            var index = this.totalSentMessages % 5;
         
             this.sentMessages[index] = messageText;
 
@@ -71,11 +71,11 @@ function MessageLog (user) {
     this.getSentMessage = function (n) {
         var mostRecent = (this.totalSentMessages - 1) % 5;
 
-        if (mostRecent + n < 5) {
-            return this.sentMessages[mostRecent + n];
+        if (mostRecent - n >= 0) {
+            return this.sentMessages[mostRecent - n];
         }
         else {
-            return this.sentMessage[mostRecent + n - 5];
+            return this.sentMessages[mostRecent - n + 5];
         }
     }
     this.totalSent = function () { return this.totalSentMessages; };
@@ -90,7 +90,7 @@ function MessageLog (user) {
 */
 //your code here
 MessageLog.prototype.lastReceivedMessage = function () {
-    return this.receivedMessages[(this.totalSentMessages - 1) % 5];
+    return this.receivedMessages[(this.totalReceivedMessages - 1) % 5];
 }
 //end your code
 
