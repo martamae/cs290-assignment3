@@ -10,12 +10,12 @@
 
 function returnObjectLiteral() {
   //your code here
-   var object = {
+    var object = {
         type: 'Goldfish',
         brand: 'Pepperidge Farm',
         flavor: 'Cheddar',
         count: 2000
-    }
+    };
 
   return object; //Modify ONLY this line
   //end your code
@@ -45,7 +45,42 @@ function returnObjectLiteral() {
 */
 
 //your code here
+function MessageLog (user) {
+    this.user = user;
+    this.totalSent = 0;
+    this.totalReceived = 0;
+    this.sentMessages = Array(5);
+    this.receivedMessages = Array(5);
 
+    this.logMessage = function (messageText, direction) {
+        if (direction == 0) {
+            var index = totalSent % 5;
+        
+            sentMessages[index] = messageText;
+
+            totalSent++;
+        }
+        else if (direction == 1) {
+            var index = totalReceived % 5;
+
+            receivedMessages[index] = messageText;
+
+            totalReceived++;
+        }
+    }
+   // this.getSentMessage = function (n) {
+     //   mostRecent = (totalSent - 1) % 5;
+
+       // if (mostRecent + n < 5) {
+         //   return sentMessages[mostRecent + n];
+       // }
+       // else {
+         //   return sentMessage[mostRecent + n - 5];
+       // }
+    //}
+    //this.totalSentMessage = function () { return totalSent; }
+   // this.totalReceived() = function () { return totalReceived; }
+}
 //end your code
 
 /**
