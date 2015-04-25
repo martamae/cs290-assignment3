@@ -49,37 +49,37 @@ function MessageLog (user) {
     this.user = user;
     this.totalSentMessages = 0;
     this.totalReceivedMessages = 0;
-    this.sentMessages = Array(5);
-    this.receivedMessages = Array(5);
+    this.sentMessages = new Array(5);
+    this.receivedMessages = new Array(5);
 
     this.logMessage = function (messageText, direction) {
         if (direction == 0) {
-            var index = totalSent % 5;
+            var index = this.totalSent % 5;
         
-            sentMessages[index] = messageText;
+            this.sentMessages[index] = messageText;
 
-            totalSent++;
+            this.totalSentMessages++;
         }
         else if (direction == 1) {
-            var index = totalReceived % 5;
+            var index = this.totalReceivedMessages % 5;
 
-            receivedMessages[index] = messageText;
+            this.receivedMessages[index] = messageText;
 
-            totalReceived++;
+            this.totalReceivedMessages++;
         }
     }
     this.getSentMessage = function (n) {
-        mostRecent = (totalSent - 1) % 5;
+        var mostRecent = (this.totalSentMessages - 1) % 5;
 
         if (mostRecent + n < 5) {
-            return sentMessages[mostRecent + n];
+            return this.sentMessages[mostRecent + n];
         }
         else {
-            return sentMessage[mostRecent + n - 5];
+            return this.sentMessage[mostRecent + n - 5];
         }
     }
-    this.totalSent = function () { return totalSentMessages; }
-    this.totalReceived = function () { return totalReceivedMessages; }
+    this.totalSent = function () { return this.totalSentMessages; };
+    this.totalReceived = function () { return this.totalReceivedMessages };
 }
 //end your code
 
@@ -89,7 +89,9 @@ function MessageLog (user) {
 * received.
 */
 //your code here
-
+MessageLog.prototype.lastReceivedMessage = function () {
+    return this.receivedMessages[(this.totalSentMessages - 1) % 5];
+}
 //end your code
 
 /**
